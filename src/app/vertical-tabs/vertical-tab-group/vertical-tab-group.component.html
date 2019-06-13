@@ -1,0 +1,13 @@
+<div fxLayout="row" fxLayoutAlign="start stretch" style="padding: 30px;">
+  <div class="grandparent">
+    <div class="parent" [ngClass]="selectedClass">
+      <div class="item" *ngFor="let tab of tabs; let i=index" [ngClass]="{'selected': selectedIndex === i}" (click)="selectIndex(i)" matRipple fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="10px">
+        {{ tab.label }}
+      </div>
+    </div>
+  </div>
+  <div class="tab-content" fxFlex>
+    <!-- <app-vertical-tab-body [content]="selectedPortal"></app-vertical-tab-body> -->
+    <ng-template [cdkPortalOutlet]="selectedPortal"></ng-template>
+  </div>
+</div>
